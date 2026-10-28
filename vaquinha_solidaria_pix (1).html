@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campanha independente de arrecadação para apoiar pessoas em situação de insegurança alimentar no Rio de Janeiro.">
+  <title>Vaquinha Solidária | Juntos Contra a Fome</title>
+  <style>
+    :root {
+      --navy: #073765;
+      --blue: #0d5798;
+      --yellow: #ffd43b;
+      --ink: #18334c;
+      --muted: #607487;
+      --pale: #f1f7fc;
+      --line: #dce7f0;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); line-height: 1.6; background: #f7fafc; }
+    header { background: var(--navy); color: white; padding: 16px 5%; }
+    .nav { max-width: 1100px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-size: 1.05rem; font-weight: 800; letter-spacing: .3px; }
+    .nav-note { font-size: .85rem; opacity: .9; }
+    .hero { background: linear-gradient(125deg, #062d53, #0e5b9c); color: white; padding: 52px 5% 60px; }
+    .hero-inner { max-width: 1100px; margin: auto; display: grid; grid-template-columns: 1.2fr .8fr; gap: 34px; align-items: center; }
+    .eyebrow { color: var(--yellow); font-weight: 800; text-transform: uppercase; font-size: .82rem; letter-spacing: 1.4px; }
+    h1 { font-size: clamp(2.25rem, 5vw, 3.8rem); line-height: 1.08; margin: 12px 0 18px; }
+    .hero p { color: #e7f2fc; font-size: 1.06rem; max-width: 660px; }
+    .hero-button { display: inline-block; margin-top: 14px; padding: 14px 20px; background: var(--yellow); color: #173756; font-weight: 800; text-decoration: none; border-radius: 9px; }
+    .hero-button:hover { filter: brightness(.97); }
+    .fund-card { background: white; color: var(--ink); border-radius: 16px; padding: 26px; box-shadow: 0 16px 36px rgba(0,0,0,.18); }
+    .fund-card h2 { color: var(--navy); margin: 0 0 5px; font-size: 1.3rem; }
+    .big-number { font-size: 2rem; font-weight: 800; color: var(--blue); margin: 5px 0; }
+    .muted { color: var(--muted); font-size: .9rem; }
+    .progress { background: #e7eef5; border-radius: 999px; height: 12px; overflow: hidden; margin: 15px 0 8px; }
+    .progress-fill { height: 100%; width: 0%; background: var(--yellow); border-radius: 999px; }
+    main { max-width: 1100px; margin: auto; padding: 42px 5%; }
+    .layout { display: grid; grid-template-columns: 1fr 360px; gap: 26px; align-items: start; }
+    .panel { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 25px; margin-bottom: 20px; }
+    h2 { color: var(--navy); line-height: 1.25; }
+    .panel h2 { margin-top: 0; }
+    .amounts { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 18px 0; }
+    .amount { border: 1px solid #b9ccdc; background: #fff; color: var(--navy); padding: 12px 8px; border-radius: 9px; font-size: 1rem; font-weight: 800; cursor: pointer; }
+    .amount.active, .amount:hover { background: #eaf4ff; border-color: var(--blue); }
+    .pix-box { background: var(--pale); border: 1px dashed #a8c1d6; border-radius: 10px; padding: 16px; overflow-wrap: anywhere; }
+    .pix-key { font-weight: 700; margin: 6px 0 12px; }
+    .copy-btn { border: 0; border-radius: 8px; background: var(--blue); color: white; padding: 12px 15px; font-weight: 800; cursor: pointer; width: 100%; }
+    .copy-btn:hover { background: var(--navy); }
+    .status { min-height: 24px; color: #17633a; font-size: .9rem; margin-top: 8px; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .step { background: var(--pale); padding: 17px; border-radius: 10px; }
+    .step strong { color: var(--navy); display: block; margin-bottom: 5px; }
+    .warning { background: #fff8df; border: 1px solid #f0dc83; border-radius: 10px; padding: 15px 17px; font-size: .9rem; }
+    footer { text-align: center; background: #062d53; color: #e8f2fb; padding: 25px 5%; font-size: .88rem; }
+    @media (max-width: 800px) {
+      .hero-inner, .layout { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .nav-note { text-align: left; }
+    }
+    @media (max-width: 420px) {
+      .amounts { grid-template-columns: repeat(2,1fr); }
+      .panel, .fund-card { padding: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">💛 VAQUINHA SOLIDÁRIA</div>
+      <div class="nav-note">Campanha independente · Juntos Contra a Fome</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Toda contribuição pode ajudar</div>
+        <h1>Vamos ajudar a colocar comida na mesa.</h1>
+        <p>Esta campanha busca mobilizar apoio para ações de assistência alimentar a pessoas e famílias em situação de vulnerabilidade no Rio de Janeiro.</p>
+        <a class="hero-button" href="#contribuir">Quero contribuir ↓</a>
+        <p class="muted" style="color:#d5e7f7">Leia as informações da campanha e confira os dados do responsável antes de fazer uma contribuição.</p>
+      </div>
+      <aside class="fund-card">
+        <h2>Meta da campanha</h2>
+        <div class="big-number" id="goalDisplay">R$ 5.000,00</div>
+        <div class="progress" aria-label="Progresso da arrecadação"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="muted"><span id="raisedDisplay">R$ 0,00</span> arrecadados de <span id="goalInline">R$ 5.000,00</span></div>
+        <p class="muted">Atualize os valores no código para refletir a arrecadação real. Não exiba valores estimados como se fossem doações recebidas.</p>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <div class="layout">
+      <div>
+        <section class="panel">
+          <h2>Sobre esta campanha</h2>
+          <p>O objetivo é reunir contribuições voluntárias para apoiar a compra e a distribuição de alimentos a pessoas que estejam passando por dificuldades. Para manter a confiança de quem ajuda, publique atualizações sobre o uso dos recursos e guarde comprovantes das despesas.</p>
+          <p><strong>Responsável pela campanha:</strong> <span>[COLOQUE O NOME DO RESPONSÁVEL]</span></p>
+          <p><strong>Como os recursos serão utilizados:</strong> compra de alimentos básicos e apoio logístico, conforme descrito e comprovado pelo organizador.</p>
+        </section>
+
+        <section class="panel">
+          <h2>Como funciona</h2>
+          <div class="steps">
+            <div class="step"><strong>1. Escolha contribuir</strong><span class="muted">Qualquer valor é voluntário. Contribua apenas se puder.</span></div>
+            <div class="step"><strong>2. Faça o Pix</strong><span class="muted">Confira o nome do destinatário exibido no aplicativo do seu banco.</span></div>
+            <div class="step"><strong>3. Acompanhe</strong><span class="muted">Consulte as atualizações e a prestação de contas da campanha.</span></div>
+          </div>
+        </section>
+
+        <div class="warning"><strong>Transparência:</strong> este é um modelo independente, não um site oficial do Governo do Estado do Rio de Janeiro nem uma plataforma de pagamentos. Antes de divulgar, preencha os dados reais do responsável, a chave Pix correta e informações verificáveis sobre a destinação do dinheiro.</div>
+      </div>
+
+      <aside class="panel" id="contribuir">
+        <h2>Contribua via Pix</h2>
+        <p>Escolha um valor sugerido e, em seguida, use a chave Pix abaixo no aplicativo do seu banco.</p>
+        <div class="amounts" aria-label="Valores sugeridos">
+          <button class="amount" type="button" data-value="10">R$ 10</button>
+          <button class="amount active" type="button" data-value="20">R$ 20</button>
+          <button class="amount" type="button" data-value="50">R$ 50</button>
+          <button class="amount" type="button" data-value="100">R$ 100</button>
+          <button class="amount" type="button" data-value="200">R$ 200</button>
+          <button class="amount" type="button" data-value="0">Outro valor</button>
+        </div>
+        <label for="customAmount"><strong>Valor que deseja contribuir (R$)</strong></label>
+        <input id="customAmount" type="number" min="1" step="0.01" value="20" style="width:100%;padding:12px;border:1px solid #b9ccdc;border-radius:8px;margin:8px 0 18px;font:inherit">
+        <div class="pix-box">
+          <div class="muted">Chave Pix do responsável</div>
+          <div class="pix-key" id="pixKey">[INSIRA_A_CHAVE_PIX_AQUI]</div>
+          <button class="copy-btn" type="button" id="copyPix">Copiar chave Pix</button>
+          <div class="status" id="copyStatus" aria-live="polite"></div>
+        </div>
+        <p class="muted">O botão copia a chave Pix. A transferência é feita no aplicativo do seu banco; este site não recebe nem processa pagamentos.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <strong>Vaquinha Solidária · Juntos Contra a Fome</strong><br>
+    Iniciativa independente. Solidariedade com responsabilidade e transparência.
+  </footer>
+
+  <script>
+    // EDITE estes dados antes de publicar:
+    const PIX_KEY = "[INSIRA_A_CHAVE_PIX_AQUI]";
+    const META_REAIS = 5000;
+    const ARRECADADO_REAIS = 0;
+
+    document.getElementById("pixKey").textContent = PIX_KEY;
+    document.getElementById("goalDisplay").textContent = formatBRL(META_REAIS);
+    document.getElementById("goalInline").textContent = formatBRL(META_REAIS);
+    document.getElementById("raisedDisplay").textContent = formatBRL(ARRECADADO_REAIS);
+    document.getElementById("progressFill").style.width =
+      Math.max(0, Math.min(100, META_REAIS > 0 ? ARRECADADO_REAIS / META_REAIS * 100 : 0)) + "%";
+
+    function formatBRL(value) {
+      return Number(value).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    }
+
+    const amountInput = document.getElementById("customAmount");
+    document.querySelectorAll(".amount").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".amount").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        if (button.dataset.value !== "0") amountInput.value = button.dataset.value;
+        else { amountInput.value = ""; amountInput.focus(); }
+      });
+    });
+
+    document.getElementById("copyPix").addEventListener("click", async () => {
+      const status = document.getElementById("copyStatus");
+      if (!PIX_KEY || PIX_KEY.includes("INSIRA_A_CHAVE")) {
+        status.textContent = "Edite o arquivo e coloque sua chave Pix real antes de usar.";
+        status.style.color = "#9b3a20";
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(PIX_KEY);
+        status.textContent = "Chave Pix copiada. Confira o destinatário no banco antes de confirmar.";
+        status.style.color = "#17633a";
+      } catch (error) {
+        status.textContent = "Não foi possível copiar automaticamente. Selecione e copie a chave acima.";
+        status.style.color = "#9b3a20";
+      }
+    });
+  </script>
+</body>
+</html>
